@@ -13,14 +13,16 @@ export default function Home() {
             <Text color="white" size="xlarge" tag="h1">
               Shunya Hayashi
             </Text>
-            <Text size="small" tag="h2" >
+            <Text size="small" tag="h2">
               software developer <br /> hhkb lover
             </Text>
           </div>
         </div>
         <div className="flex w-2/3 justify-between">
           <div className="flex flex-col space-y-2">
-            <Text size="large" tag="h2" color="white">Interests</Text>
+            <Text size="large" tag="h2" color="white">
+              Interests
+            </Text>
             <ul className="ml-3.5 list-disc space-y-1">
               <li className="text-white ">Typescript</li>
               <li className="text-white ">Golang</li>
@@ -28,7 +30,9 @@ export default function Home() {
             </ul>
           </div>
           <nav className="flex flex-col space-y-2">
-          <Text size="large" tag="h2" color="white">SNS</Text>
+            <Text size="large" tag="h2" color="white">
+              SNS
+            </Text>
             <ul className="ml-3.5  list-disc space-y-1">
               <li className="text-white">Github</li>
               <li className="text-white">zenn</li>

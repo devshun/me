@@ -9,5 +9,3 @@ export const Layout: React.FC<{ children: ReactNode }> = memo(
     );
   }
 );
-
-Layout.displayName = "Layout";
