@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix --ignore-path .gitignore . && prettier --write --ignore-path .gitignore .",
-    "lint:check": "next lint --ignore-path .gitignore . && prettier --check --ignore-path .gitignore . "
+    "lint": "next lint --fix --ignore-path .gitignore . & prettier --write --ignore-path .gitignore .",
+    "lint:check": "next lint --ignore-path .gitignore . & prettier --check --ignore-path .gitignore . "
   },
   "dependencies": {
     "@types/node": "18.15.11",
