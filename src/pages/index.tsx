@@ -1,14 +1,19 @@
 import { Layout } from "@/components/Layout";
 import { Text } from "@/components/Text";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <Layout>
       <div className="flex flex-col space-y-12">
         <div className="mx-auto flex items-center space-x-10">
-          <span className="flex h-36 w-36 items-center justify-center rounded-full bg-white">
-            image
-          </span>
+          <Image
+            src="/assets/70781900.jpeg"
+            alt="profile image"
+            width={144}
+            height={144}
+            className="rounded-full"
+          />
           <div className="flex flex-col space-y-4">
             <Text color="white" size="xlarge" tag="h1">
               Shunya Hayashi
@@ -34,9 +39,21 @@ export default function Home() {
               SNS
             </Text>
             <ul className="ml-3.5  list-disc space-y-1">
-              <li className="text-white">Github</li>
-              <li className="text-white">zenn</li>
-              <li className="text-white">qiita</li>
+              <li className="cursor-pointer text-white underline decoration-transparent transition duration-100 ease-in-out hover:decoration-inherit">
+                <a href="https://github.com/devshun" target="_blank">
+                  Github
+                </a>
+              </li>
+              <li className="cursor-pointer text-white underline decoration-transparent transition duration-100 ease-in-out hover:decoration-inherit">
+                <a href="https://zenn.dev/dev_shun" target="_blank">
+                  Zenn
+                </a>
+              </li>
+              <li className="cursor-pointer text-white underline decoration-transparent transition duration-100 ease-in-out hover:decoration-inherit">
+                <a href="https://qiita.com/dev_shun" target="_blank">
+                  Qiita
+                </a>
+              </li>
             </ul>
           </nav>
         </div>
