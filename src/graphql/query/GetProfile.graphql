@@ -1,0 +1,13 @@
+query GetProfile {
+  profiles {
+    id
+    firstName
+    lastName
+    selfIntroduction
+    interests
+    sns
+    image {
+      id
+    }
+  }
+}
