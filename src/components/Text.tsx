@@ -53,9 +53,9 @@ const TextComponent = forwardRef<TextElement, TextProps>(
 
     const renderText = useCallback(() => {
       const text = (
-        // @ts-ignore
         <Tag
           className={classes}
+          // @ts-ignore
           ref={ref as ForwardedRef<TextElement>}
           {...rest}
         >
