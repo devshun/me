@@ -19,7 +19,7 @@ export default function Home() {
               Shunya Hayashi
             </Text>
             <Text size="small" tag="h2">
-              software developer <br /> hhkb lover
+              software developer, <br /> hhkb lover, <br /> 24 years old,
             </Text>
           </div>
         </div>
