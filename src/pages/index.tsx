@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { List, ListItem } from "@/components/List";
 import { Text } from "@/components/Text";
 import Image from "next/image";
 
@@ -28,33 +29,21 @@ export default function Home() {
             <Text size="large" tag="h2" color="white">
               Interests
             </Text>
-            <ul className="ml-3.5 list-disc space-y-1">
-              <li className="text-white ">Typescript</li>
-              <li className="text-white ">Golang</li>
-              <li className="text-white ">GraphQL</li>
-            </ul>
+            <List className="ml-3.5">
+              <ListItem>Typescript</ListItem>
+              <ListItem>Golang</ListItem>
+              <ListItem>GraphQL</ListItem>
+            </List>
           </div>
           <nav className="flex flex-col space-y-2">
             <Text size="large" tag="h2" color="white">
               SNS
             </Text>
-            <ul className="ml-3.5  list-disc space-y-1">
-              <li className="cursor-pointer text-white underline decoration-transparent transition duration-100 ease-in-out hover:decoration-inherit">
-                <a href="https://github.com/devshun" target="_blank">
-                  Github
-                </a>
-              </li>
-              <li className="cursor-pointer text-white underline decoration-transparent transition duration-100 ease-in-out hover:decoration-inherit">
-                <a href="https://zenn.dev/dev_shun" target="_blank">
-                  Zenn
-                </a>
-              </li>
-              <li className="cursor-pointer text-white underline decoration-transparent transition duration-100 ease-in-out hover:decoration-inherit">
-                <a href="https://qiita.com/dev_shun" target="_blank">
-                  Qiita
-                </a>
-              </li>
-            </ul>
+            <List className="ml-3.5">
+              <ListItem url="https://github.com/devshun">Github</ListItem>
+              <ListItem url="https://zenn.dev/dev_shun">Zenn</ListItem>
+              <ListItem url="https://qiita.com/dev_shun">Qiita</ListItem>
+            </List>
           </nav>
         </div>
       </div>
