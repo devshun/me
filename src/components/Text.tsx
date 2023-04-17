@@ -1,11 +1,11 @@
 import Link, { LinkProps } from "next/link";
 import React, {
   ElementType,
-  ForwardedRef,
   forwardRef,
   HTMLAttributes,
   memo,
   ReactElement,
+  RefObject,
   useCallback,
 } from "react";
 
@@ -55,8 +55,8 @@ const TextComponent = forwardRef<TextElement, TextProps>(
       const text = (
         <Tag
           className={classes}
-          // @ts-ignore
-          ref={ref as ForwardedRef<TextElement>}
+          
+          ref={ref  as (((instance: HTMLAnchorElement & HTMLDivElement | null) => void) | RefObject<HTMLAnchorElement & HTMLDivElement>)}
           {...rest}
         >
           {children}
