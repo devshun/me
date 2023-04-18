@@ -19,18 +19,18 @@ export type Scalars = {
   Int: number;
   Float: number;
   /** A date string, such as 2007-12-03 (YYYY-MM-DD), compliant with ISO 8601 standard for representation of dates using the Gregorian calendar. */
-  Date: any;
+  Date: unknown;
   /** A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the date-timeformat outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representationof dates and times using the Gregorian calendar. */
-  DateTime: any;
-  Hex: any;
+  DateTime: unknown;
+  Hex: unknown;
   /** Raw JSON value */
-  Json: any;
+  Json: unknown;
   /** The Long scalar type represents non-fractional signed whole numeric values. Long can represent values between -(2^63) and 2^63 - 1. */
-  Long: any;
-  RGBAHue: any;
-  RGBATransparency: any;
+  Long: unknown;
+  RGBAHue: unknown;
+  RGBATransparency: unknown;
   /** Slate-compatible RichText AST */
-  RichTextAST: any;
+  RichTextAST: unknown;
 };
 
 export type Aggregate = {
@@ -3571,7 +3571,7 @@ export type GetProfileQuery = {
     lastName?: string | null;
     selfIntroduction?: string | null;
     interests: Array<string>;
-    sns: Array<any>;
+    sns: Array<unknown>;
     image?: { __typename?: "Asset"; id: string } | null;
   }>;
 };

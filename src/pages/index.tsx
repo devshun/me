@@ -1,9 +1,16 @@
 import { Layout } from "@/components/Layout";
 import { List, ListItem } from "@/components/List";
 import { Text } from "@/components/Text";
+import { client } from "@/graphql/client";
+import {
+  GetProfileDocument,
+  GetProfileQuery,
+} from "@/graphql/generated/graphql";
 import Image from "next/image";
+import { Fragment } from "react";
 
-export default function Home() {
+export default function Home({ profiles }: GetProfileQuery) {
+  const [profile] = profiles;
   return (
     <Layout>
       <div className="flex flex-col space-y-12">
@@ -17,10 +24,15 @@ export default function Home() {
           />
           <div className="flex flex-col space-y-4">
             <Text color="white" size="xlarge" tag="h1">
-              Shunya Hayashi
+              {profile.firstName} {profile.lastName}
             </Text>
             <Text size="small" tag="h2">
-              software developer <br /> hhkb lover
+              {profile.selfIntroduction?.split("\n").map((line, i) => (
+                <Fragment key={`${line}_${i}`}>
+                  {line}
+                  <br />
+                </Fragment>
+              ))}
             </Text>
           </div>
         </div>
@@ -30,9 +42,9 @@ export default function Home() {
               Interests
             </Text>
             <List className="ml-3.5">
-              <ListItem>Typescript</ListItem>
-              <ListItem>Golang</ListItem>
-              <ListItem>GraphQL</ListItem>
+              {profile.interests.map((interest, i) => (
+                <ListItem key={`${interest}_${i}`}>{interest}</ListItem>
+              ))}
             </List>
           </div>
           <nav className="flex flex-col space-y-2">
@@ -40,9 +52,13 @@ export default function Home() {
               SNS
             </Text>
             <List className="ml-3.5">
-              <ListItem url="https://github.com/devshun">Github</ListItem>
-              <ListItem url="https://zenn.dev/dev_shun">Zenn</ListItem>
-              <ListItem url="https://qiita.com/dev_shun">Qiita</ListItem>
+              {(profile.sns as Array<{ label: string; url: string }>).map(
+                ({ label, url }, i) => (
+                  <ListItem key={`${label}_${i}`} url={url}>
+                    {label}
+                  </ListItem>
+                )
+              )}
             </List>
           </nav>
         </div>
@@ -50,3 +66,14 @@ export default function Home() {
     </Layout>
   );
 }
+
+export const getStaticProps = async () => {
+  const { data } = await client.query({
+    query: GetProfileDocument,
+  });
+
+  return {
+    props: data,
+    
+  };
+};
