@@ -1,6 +1,6 @@
 /* eslint-disable */
-import * as types from "./graphql";
-import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/core";
+import * as types from './graphql';
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 
 /**
  * Map of all GraphQL operations in the project.
@@ -13,8 +13,7 @@ import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-  "query GetProfile {\n  profiles {\n    id\n    firstName\n    lastName\n    selfIntroduction\n    interests\n    sns\n    image {\n      id\n    }\n  }\n}":
-    types.GetProfileDocument,
+    "query GetProfile {\n  profiles {\n    id\n    firstName\n    lastName\n    selfIntroduction\n    interests\n    sns\n    image {\n      id\n      url\n    }\n  }\n}": types.GetProfileDocument,
 };
 
 /**
@@ -34,13 +33,10 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(
-  source: "query GetProfile {\n  profiles {\n    id\n    firstName\n    lastName\n    selfIntroduction\n    interests\n    sns\n    image {\n      id\n    }\n  }\n}"
-): (typeof documents)["query GetProfile {\n  profiles {\n    id\n    firstName\n    lastName\n    selfIntroduction\n    interests\n    sns\n    image {\n      id\n    }\n  }\n}"];
+export function graphql(source: "query GetProfile {\n  profiles {\n    id\n    firstName\n    lastName\n    selfIntroduction\n    interests\n    sns\n    image {\n      id\n      url\n    }\n  }\n}"): (typeof documents)["query GetProfile {\n  profiles {\n    id\n    firstName\n    lastName\n    selfIntroduction\n    interests\n    sns\n    image {\n      id\n      url\n    }\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
 }
 
-export type DocumentType<TDocumentNode extends DocumentNode<any, any>> =
-  TDocumentNode extends DocumentNode<infer TType, any> ? TType : never;
+export type DocumentType<TDocumentNode extends DocumentNode<any, any>> = TDocumentNode extends DocumentNode<  infer TType,  any>  ? TType  : never;

@@ -16,7 +16,7 @@ export default function Home({ profiles }: GetProfileQuery) {
       <div className="flex flex-col space-y-12">
         <div className="mx-auto flex items-center space-x-10">
           <Image
-            src="/assets/70781900.jpeg"
+            src={profile.image?.url as string}
             alt="profile image"
             width={144}
             height={144}

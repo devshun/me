@@ -8,6 +8,7 @@ query GetProfile {
     sns
     image {
       id
+      url
     }
   }
 }
