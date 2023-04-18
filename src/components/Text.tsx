@@ -35,7 +35,7 @@ type TextProps = HTMLAttributes<TextElement> & BaseProps;
 const TextComponent = forwardRef<TextElement, TextProps>(
   (props, ref): ReactElement => {
     const {
-      tag: Tag = "span",
+      tag: Tag = "div",
       children,
       className,
       size = "medium",
@@ -51,21 +51,25 @@ const TextComponent = forwardRef<TextElement, TextProps>(
       url && linkClasses,
     ].join(" ");
 
-    const renderText = useCallback(() => {
-      const text = (
+    const TextElement = useCallback(() => {
+      return (
         <Tag
           className={classes}
-          
-          ref={ref  as (((instance: HTMLAnchorElement & HTMLDivElement | null) => void) | RefObject<HTMLAnchorElement & HTMLDivElement>)}
+          ref={
+            ref as
+              | ((
+                  instance: (HTMLAnchorElement & HTMLDivElement) | null
+                ) => void)
+              | RefObject<HTMLAnchorElement & HTMLDivElement>
+          }
           {...rest}
         >
-          {children}
+          {url ? <Link href={url}>{children}</Link> : children}
         </Tag>
       );
-      return url ? <Link href={url}>{text}</Link> : text;
     }, [Tag, classes, ref, children, url, rest]);
 
-    return renderText();
+    return <TextElement />;
   }
 );
 
