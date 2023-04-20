@@ -22,7 +22,7 @@ export const Tab: React.FC<Props> = memo((props) => {
       color={isActive ? "white" : "gray"}
       url={url}
       className={[
-        "tab tab-bordered min-w-[8rem] no-underline hover:text-white ease-in-out duration-100 transition",
+        "tab tab-bordered min-w-[10rem] no-underline hover:text-white ease-in-out duration-100 transition",
         isActive && "tab-active pointer-events-none",
       ].join(" ")}
       {...rest}

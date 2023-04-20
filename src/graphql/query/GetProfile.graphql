@@ -4,7 +4,10 @@ query GetProfile {
     firstName
     lastName
     selfIntroduction
-    interests
+    interests {
+      id
+      url
+    }
     sns
     image {
       id
