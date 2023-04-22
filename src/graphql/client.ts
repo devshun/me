@@ -31,8 +31,8 @@ const httpLink = new HttpLink({
 // rest link
 const restLink = new RestLink({
   endpoints: {
-    zenn: "https://zenn.dev/api",
-    qiita: "api.com/v2",
+    zenn: "https://zenn.dev/api/",
+    qiita: "https://qiita.com/api/v2/",
   },
 });
 
