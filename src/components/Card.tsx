@@ -1,9 +1,7 @@
 import React, { memo } from "react";
 import { Text } from "@/components/Text";
 import dayjs from "dayjs";
-import { Badge } from "./Badge";
-
-type BadgeColorOptions = "red" | "blue" | "green" | "yellow";
+import { Badge, BadgeColorOptions } from "@/components/Badge";
 
 type Props = {
   title: string;
@@ -17,19 +15,19 @@ type Props = {
 export const Card: React.FC<Props> = memo((props) => {
   const { title, badge, publishedAt } = props;
   return (
-    <div className="card h-48 w-72 cursor-pointer bg-slate-200 shadow-xl">
+    <div className="card h-40 w-72 cursor-pointer bg-slate-200 shadow-xl">
       <Text
         color="black"
         size="large"
         tag="h2"
-        className="card-body line-clamp-4 max-h-40"
+        className="card-body p-6 line-clamp-3 max-h-36"
       >
         {title}
       </Text>
       <div className="flex h-10 items-center justify-between rounded-b-2xl bg-slate-400 px-8">
         <Badge {...badge} />
         <Text color="black" size="small" className="opacity-90">
-          {dayjs(publishedAt).format("YYYY/MM/DD")}
+          {publishedAt && dayjs(publishedAt).format("YYYY/MM/DD")}
         </Text>
       </div>
     </div>

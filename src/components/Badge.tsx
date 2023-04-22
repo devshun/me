@@ -1,13 +1,13 @@
 import React from "react";
 
-export type BadgeColorOptions = "red" | "blue" | "green" | "yellow";
+export type BadgeColorOptions = "red" | "blue" | "green" | "yellow" | "black";
 
 type Props = {
   label: string;
   color: BadgeColorOptions;
 };
 
-export const Badge: React.FC<Props> = ({ label, color }) => {
+export const Badge: React.FC<Props> = ({ label, color = "black"}) => {
   return (
     <span className={["badge border-none", badgeColors[color]].join(" ")}>
       {label}
@@ -20,4 +20,5 @@ const badgeColors: { [key in BadgeColorOptions]: string } = {
   blue: "bg-blue-500 text-white",
   green: "bg-green-500 text-white",
   yellow: "bg-yellow-500 text-white",
+  black: "bg-black text-white",
 };
