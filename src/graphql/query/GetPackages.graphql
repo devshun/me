@@ -13,5 +13,6 @@ query GetPackages {
     name
     kind
     url
+    description
   }
 }

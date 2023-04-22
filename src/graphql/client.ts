@@ -1,24 +1,7 @@
-import {
-  ApolloClient,
-  InMemoryCache,
-  HttpLink,
-  from,
-  ApolloLink,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, HttpLink, from } from "@apollo/client";
 import { RestLink } from "apollo-link-rest";
 
 const cache = new InMemoryCache();
-
-const authLink = new ApolloLink((operation, forward) => {
-  console.log("operation", operation.variables);
-
-  operation.setContext(({ headers = {} }) => ({
-    headers: {
-      ...headers,
-    },
-  }));
-  return forward(operation);
-});
 
 // http link
 const httpLink = new HttpLink({
@@ -37,6 +20,6 @@ const restLink = new RestLink({
 });
 
 export const client = new ApolloClient({
-  link: from([authLink, restLink, httpLink]),
+  link: from([restLink, httpLink]),
   cache,
 });

@@ -13,7 +13,6 @@ import Link from "next/link";
 
 const PackagesPage: NextPage<GetPackagesQuery> = ({ profiles, packages }) => {
   const [profile] = profiles;
-
   return (
     <div className="flex flex-col space-y-12">
       <div className="mx-auto flex items-center space-x-10">
@@ -38,11 +37,12 @@ const PackagesPage: NextPage<GetPackagesQuery> = ({ profiles, packages }) => {
       </Tabs>
       <div className="animate-float-up md:min-h-[25rem]">
         <div className="grid max-h-96 flex-col gap-8 px-10 sm:grid-cols-2 md:grid-cols-3 md:px-0">
-          {packages.map(({ id, name, kind, url }) => (
+          {packages.map(({ id, name, kind, url, description }) => (
             <Link key={id} href={url as string} passHref legacyBehavior>
               <a target="_blank" rel="noopener noreferrer">
                 <Card
                   title={name as string}
+                  subtitle={description as string}
                   badge={{ label: kind as string }}
                 />
               </a>
