@@ -1,3 +1,3 @@
 ### 自己紹介サイト
 
-https://dev-shun.vercel.app/
+https://dev-shun.me/
