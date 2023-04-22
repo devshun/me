@@ -15,6 +15,8 @@ import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/
 const documents = {
   'query GetArticles($zennUsername: String!, $qiitaUsername: String!) {\n  profiles {\n    id\n    firstName\n    lastName\n    image {\n      id\n      url\n    }\n  }\n  zennArticles(username: $zennUsername) @rest(type: "zennArticles", method: "GET", path: "articles?username={args.username}&order=latest", endpoint: "zenn") {\n    articles {\n      id\n      title\n      slug\n      published_at\n    }\n  }\n  qiitaArticles(username: $qiitaUsername) @rest(type: "qiitaArticles", method: "GET", path: "items?page=1&per_page=100&query=qiita+user%3A{args.username}", endpoint: "qiita") {\n    id\n    title\n    url\n    created_at\n  }\n}':
     types.GetArticlesDocument,
+  "query GetPackages {\n  profiles {\n    id\n    firstName\n    lastName\n    image {\n      id\n      url\n    }\n  }\n  packages {\n    id\n    name\n    kind\n    url\n  }\n}":
+    types.GetPackagesDocument,
   "query GetProfile {\n  profiles {\n    id\n    firstName\n    lastName\n    selfIntroduction\n    interests {\n      id\n      url\n    }\n    sns\n    image {\n      id\n      url\n    }\n  }\n}":
     types.GetProfileDocument,
 };
@@ -39,6 +41,12 @@ export function graphql(source: string): unknown;
 export function graphql(
   source: 'query GetArticles($zennUsername: String!, $qiitaUsername: String!) {\n  profiles {\n    id\n    firstName\n    lastName\n    image {\n      id\n      url\n    }\n  }\n  zennArticles(username: $zennUsername) @rest(type: "zennArticles", method: "GET", path: "articles?username={args.username}&order=latest", endpoint: "zenn") {\n    articles {\n      id\n      title\n      slug\n      published_at\n    }\n  }\n  qiitaArticles(username: $qiitaUsername) @rest(type: "qiitaArticles", method: "GET", path: "items?page=1&per_page=100&query=qiita+user%3A{args.username}", endpoint: "qiita") {\n    id\n    title\n    url\n    created_at\n  }\n}'
 ): (typeof documents)['query GetArticles($zennUsername: String!, $qiitaUsername: String!) {\n  profiles {\n    id\n    firstName\n    lastName\n    image {\n      id\n      url\n    }\n  }\n  zennArticles(username: $zennUsername) @rest(type: "zennArticles", method: "GET", path: "articles?username={args.username}&order=latest", endpoint: "zenn") {\n    articles {\n      id\n      title\n      slug\n      published_at\n    }\n  }\n  qiitaArticles(username: $qiitaUsername) @rest(type: "qiitaArticles", method: "GET", path: "items?page=1&per_page=100&query=qiita+user%3A{args.username}", endpoint: "qiita") {\n    id\n    title\n    url\n    created_at\n  }\n}'];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: "query GetPackages {\n  profiles {\n    id\n    firstName\n    lastName\n    image {\n      id\n      url\n    }\n  }\n  packages {\n    id\n    name\n    kind\n    url\n  }\n}"
+): (typeof documents)["query GetPackages {\n  profiles {\n    id\n    firstName\n    lastName\n    image {\n      id\n      url\n    }\n  }\n  packages {\n    id\n    name\n    kind\n    url\n  }\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

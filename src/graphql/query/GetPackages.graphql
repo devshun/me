@@ -1,0 +1,17 @@
+query GetPackages {
+  profiles {
+    id
+    firstName
+    lastName
+    image {
+      id
+      url
+    }
+  }
+  packages {
+    id
+    name
+    kind
+    url
+  }
+}

@@ -1,16 +1,20 @@
+import { Card } from "@/components/Card";
 import { Tab, Tabs } from "@/components/Tabs";
 import { Text } from "@/components/Text";
 import { client } from "@/graphql/client";
 import {
-  GetProfileDocument,
-  GetProfileQuery,
+  GetArticlesQuery,
+  GetPackagesDocument,
+  GetPackagesQuery,
 } from "@/graphql/generated/graphql";
+import { Article } from "@/types/article";
+import { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment } from "react";
 
-const PackagesPage = ({ profiles }: GetProfileQuery) => {
+const PackagesPage: NextPage<GetPackagesQuery> = ({ profiles, packages }) => {
   const [profile] = profiles;
+
   return (
     <div className="flex flex-col space-y-12">
       <div className="mx-auto flex items-center space-x-10">
@@ -34,73 +38,26 @@ const PackagesPage = ({ profiles }: GetProfileQuery) => {
         <Tab url="/packages">Packages</Tab>
       </Tabs>
       <div className="min-h-[25rem] animate-float-up">
-        <div className="flex w-2/3 flex-col justify-start space-y-10">
-          <Text tag="h2">
-            {profile.selfIntroduction?.split("\n").map((line, i) => (
-              <Fragment key={`${line}_${i}`}>
-                {line}
-                <br />
-              </Fragment>
-            ))}
-          </Text>
-          <div className="flex flex-col space-y-8">
-            <div className="flex flex-col space-y-2">
-              <Text size="large" tag="h2" color="white">
-                Interests
-              </Text>
-              <div className="flex space-x-2">
-                {profile.interests.map((interest) => (
-                  <Image
-                    key={interest.id}
-                    src={interest.url as string}
-                    alt="interest image"
-                    width={45}
-                    height={45}
-                  />
-                ))}
-              </div>
-            </div>
-            <nav className="flex flex-col space-y-2">
-              <Text size="large" tag="h2" color="white">
-                SNS
-              </Text>
-              <div className="flex space-x-2">
-                {(
-                  profile.sns as Array<{
-                    url: string;
-                    label: string;
-                    imageUrl: string;
-                  }>
-                ).map((sns) => (
-                  <Link
-                    key={sns.imageUrl}
-                    href={sns.url}
-                    passHref
-                    legacyBehavior
-                  >
-                    <a target="_blank" rel="noopener noreferrer">
-                      <Image
-                        src={sns.imageUrl}
-                        alt="sns image"
-                        width={45}
-                        height={45}
-                        className="rounded-md bg-white"
-                      />
-                    </a>
-                  </Link>
-                ))}
-              </div>
-            </nav>
-          </div>
+        <div className="grid w-[60rem] grid-cols-3">
+          {packages.map(({ id, name, kind, url }) => (
+            <Link key={id} href={url as string} passHref legacyBehavior>
+              <a target="_blank" rel="noopener noreferrer">
+                <Card
+                  title={name as string}
+                  badge={{ label: kind as string }}
+                />
+              </a>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const { data } = await client.query({
-    query: GetProfileDocument,
+    query: GetPackagesDocument,
   });
 
   return {

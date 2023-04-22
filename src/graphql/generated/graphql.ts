@@ -901,8 +901,8 @@ export type Mutation = {
    * @deprecated Asset mutations will be overhauled soon
    */
   createAsset?: Maybe<Asset>;
-  /** Create one packages */
-  createPackages?: Maybe<Packages>;
+  /** Create one package */
+  createPackage?: Maybe<Package>;
   /** Create one profile */
   createProfile?: Maybe<Profile>;
   /** Create one scheduledRelease */
@@ -917,12 +917,12 @@ export type Mutation = {
   /** Delete many Asset documents, return deleted documents */
   deleteManyAssetsConnection: AssetConnection;
   /**
-   * Delete many Packages documents
-   * @deprecated Please use the new paginated many mutation (deleteManyPackageConnection)
+   * Delete many Package documents
+   * @deprecated Please use the new paginated many mutation (deleteManyPackagesConnection)
    */
-  deleteManyPackage: BatchPayload;
-  /** Delete many Packages documents, return deleted documents */
-  deleteManyPackageConnection: PackagesConnection;
+  deleteManyPackages: BatchPayload;
+  /** Delete many Package documents, return deleted documents */
+  deleteManyPackagesConnection: PackageConnection;
   /**
    * Delete many Profile documents
    * @deprecated Please use the new paginated many mutation (deleteManyProfilesConnection)
@@ -930,8 +930,8 @@ export type Mutation = {
   deleteManyProfiles: BatchPayload;
   /** Delete many Profile documents, return deleted documents */
   deleteManyProfilesConnection: ProfileConnection;
-  /** Delete one packages from _all_ existing stages. Returns deleted document. */
-  deletePackages?: Maybe<Packages>;
+  /** Delete one package from _all_ existing stages. Returns deleted document. */
+  deletePackage?: Maybe<Package>;
   /** Delete one profile from _all_ existing stages. Returns deleted document. */
   deleteProfile?: Maybe<Profile>;
   /** Delete and return scheduled operation */
@@ -948,12 +948,12 @@ export type Mutation = {
   /** Publish many Asset documents */
   publishManyAssetsConnection: AssetConnection;
   /**
-   * Publish many Packages documents
-   * @deprecated Please use the new paginated many mutation (publishManyPackageConnection)
+   * Publish many Package documents
+   * @deprecated Please use the new paginated many mutation (publishManyPackagesConnection)
    */
-  publishManyPackage: BatchPayload;
-  /** Publish many Packages documents */
-  publishManyPackageConnection: PackagesConnection;
+  publishManyPackages: BatchPayload;
+  /** Publish many Package documents */
+  publishManyPackagesConnection: PackageConnection;
   /**
    * Publish many Profile documents
    * @deprecated Please use the new paginated many mutation (publishManyProfilesConnection)
@@ -961,20 +961,20 @@ export type Mutation = {
   publishManyProfiles: BatchPayload;
   /** Publish many Profile documents */
   publishManyProfilesConnection: ProfileConnection;
-  /** Publish one packages */
-  publishPackages?: Maybe<Packages>;
+  /** Publish one package */
+  publishPackage?: Maybe<Package>;
   /** Publish one profile */
   publishProfile?: Maybe<Profile>;
   /** Schedule to publish one asset */
   schedulePublishAsset?: Maybe<Asset>;
-  /** Schedule to publish one packages */
-  schedulePublishPackages?: Maybe<Packages>;
+  /** Schedule to publish one package */
+  schedulePublishPackage?: Maybe<Package>;
   /** Schedule to publish one profile */
   schedulePublishProfile?: Maybe<Profile>;
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishAsset?: Maybe<Asset>;
-  /** Unpublish one packages from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
-  scheduleUnpublishPackages?: Maybe<Packages>;
+  /** Unpublish one package from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  scheduleUnpublishPackage?: Maybe<Package>;
   /** Unpublish one profile from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishProfile?: Maybe<Profile>;
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -987,12 +987,12 @@ export type Mutation = {
   /** Find many Asset documents that match criteria in specified stage and unpublish from target stages */
   unpublishManyAssetsConnection: AssetConnection;
   /**
-   * Unpublish many Packages documents
-   * @deprecated Please use the new paginated many mutation (unpublishManyPackageConnection)
+   * Unpublish many Package documents
+   * @deprecated Please use the new paginated many mutation (unpublishManyPackagesConnection)
    */
-  unpublishManyPackage: BatchPayload;
-  /** Find many Packages documents that match criteria in specified stage and unpublish from target stages */
-  unpublishManyPackageConnection: PackagesConnection;
+  unpublishManyPackages: BatchPayload;
+  /** Find many Package documents that match criteria in specified stage and unpublish from target stages */
+  unpublishManyPackagesConnection: PackageConnection;
   /**
    * Unpublish many Profile documents
    * @deprecated Please use the new paginated many mutation (unpublishManyProfilesConnection)
@@ -1000,8 +1000,8 @@ export type Mutation = {
   unpublishManyProfiles: BatchPayload;
   /** Find many Profile documents that match criteria in specified stage and unpublish from target stages */
   unpublishManyProfilesConnection: ProfileConnection;
-  /** Unpublish one packages from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
-  unpublishPackages?: Maybe<Packages>;
+  /** Unpublish one package from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  unpublishPackage?: Maybe<Package>;
   /** Unpublish one profile from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishProfile?: Maybe<Profile>;
   /** Update one asset */
@@ -1014,12 +1014,12 @@ export type Mutation = {
   /** Update many Asset documents */
   updateManyAssetsConnection: AssetConnection;
   /**
-   * Update many package
-   * @deprecated Please use the new paginated many mutation (updateManyPackageConnection)
+   * Update many packages
+   * @deprecated Please use the new paginated many mutation (updateManyPackagesConnection)
    */
-  updateManyPackage: BatchPayload;
-  /** Update many Packages documents */
-  updateManyPackageConnection: PackagesConnection;
+  updateManyPackages: BatchPayload;
+  /** Update many Package documents */
+  updateManyPackagesConnection: PackageConnection;
   /**
    * Update many profiles
    * @deprecated Please use the new paginated many mutation (updateManyProfilesConnection)
@@ -1027,16 +1027,16 @@ export type Mutation = {
   updateManyProfiles: BatchPayload;
   /** Update many Profile documents */
   updateManyProfilesConnection: ProfileConnection;
-  /** Update one packages */
-  updatePackages?: Maybe<Packages>;
+  /** Update one package */
+  updatePackage?: Maybe<Package>;
   /** Update one profile */
   updateProfile?: Maybe<Profile>;
   /** Update one scheduledRelease */
   updateScheduledRelease?: Maybe<ScheduledRelease>;
   /** Upsert one asset */
   upsertAsset?: Maybe<Asset>;
-  /** Upsert one packages */
-  upsertPackages?: Maybe<Packages>;
+  /** Upsert one package */
+  upsertPackage?: Maybe<Package>;
   /** Upsert one profile */
   upsertProfile?: Maybe<Profile>;
 };
@@ -1045,8 +1045,8 @@ export type MutationCreateAssetArgs = {
   data: AssetCreateInput;
 };
 
-export type MutationCreatePackagesArgs = {
-  data: PackagesCreateInput;
+export type MutationCreatePackageArgs = {
+  data: PackageCreateInput;
 };
 
 export type MutationCreateProfileArgs = {
@@ -1074,17 +1074,17 @@ export type MutationDeleteManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-export type MutationDeleteManyPackageArgs = {
-  where?: InputMaybe<PackagesManyWhereInput>;
+export type MutationDeleteManyPackagesArgs = {
+  where?: InputMaybe<PackageManyWhereInput>;
 };
 
-export type MutationDeleteManyPackageConnectionArgs = {
+export type MutationDeleteManyPackagesConnectionArgs = {
   after?: InputMaybe<Scalars["ID"]>;
   before?: InputMaybe<Scalars["ID"]>;
   first?: InputMaybe<Scalars["Int"]>;
   last?: InputMaybe<Scalars["Int"]>;
   skip?: InputMaybe<Scalars["Int"]>;
-  where?: InputMaybe<PackagesManyWhereInput>;
+  where?: InputMaybe<PackageManyWhereInput>;
 };
 
 export type MutationDeleteManyProfilesArgs = {
@@ -1100,8 +1100,8 @@ export type MutationDeleteManyProfilesConnectionArgs = {
   where?: InputMaybe<ProfileManyWhereInput>;
 };
 
-export type MutationDeletePackagesArgs = {
-  where: PackagesWhereUniqueInput;
+export type MutationDeletePackageArgs = {
+  where: PackageWhereUniqueInput;
 };
 
 export type MutationDeleteProfileArgs = {
@@ -1146,12 +1146,12 @@ export type MutationPublishManyAssetsConnectionArgs = {
   withDefaultLocale?: InputMaybe<Scalars["Boolean"]>;
 };
 
-export type MutationPublishManyPackageArgs = {
+export type MutationPublishManyPackagesArgs = {
   to?: Array<Stage>;
-  where?: InputMaybe<PackagesManyWhereInput>;
+  where?: InputMaybe<PackageManyWhereInput>;
 };
 
-export type MutationPublishManyPackageConnectionArgs = {
+export type MutationPublishManyPackagesConnectionArgs = {
   after?: InputMaybe<Scalars["ID"]>;
   before?: InputMaybe<Scalars["ID"]>;
   first?: InputMaybe<Scalars["Int"]>;
@@ -1159,7 +1159,7 @@ export type MutationPublishManyPackageConnectionArgs = {
   last?: InputMaybe<Scalars["Int"]>;
   skip?: InputMaybe<Scalars["Int"]>;
   to?: Array<Stage>;
-  where?: InputMaybe<PackagesManyWhereInput>;
+  where?: InputMaybe<PackageManyWhereInput>;
 };
 
 export type MutationPublishManyProfilesArgs = {
@@ -1178,9 +1178,9 @@ export type MutationPublishManyProfilesConnectionArgs = {
   where?: InputMaybe<ProfileManyWhereInput>;
 };
 
-export type MutationPublishPackagesArgs = {
+export type MutationPublishPackageArgs = {
   to?: Array<Stage>;
-  where: PackagesWhereUniqueInput;
+  where: PackageWhereUniqueInput;
 };
 
 export type MutationPublishProfileArgs = {
@@ -1198,11 +1198,11 @@ export type MutationSchedulePublishAssetArgs = {
   withDefaultLocale?: InputMaybe<Scalars["Boolean"]>;
 };
 
-export type MutationSchedulePublishPackagesArgs = {
+export type MutationSchedulePublishPackageArgs = {
   releaseAt?: InputMaybe<Scalars["DateTime"]>;
   releaseId?: InputMaybe<Scalars["String"]>;
   to?: Array<Stage>;
-  where: PackagesWhereUniqueInput;
+  where: PackageWhereUniqueInput;
 };
 
 export type MutationSchedulePublishProfileArgs = {
@@ -1221,11 +1221,11 @@ export type MutationScheduleUnpublishAssetArgs = {
   where: AssetWhereUniqueInput;
 };
 
-export type MutationScheduleUnpublishPackagesArgs = {
+export type MutationScheduleUnpublishPackageArgs = {
   from?: Array<Stage>;
   releaseAt?: InputMaybe<Scalars["DateTime"]>;
   releaseId?: InputMaybe<Scalars["String"]>;
-  where: PackagesWhereUniqueInput;
+  where: PackageWhereUniqueInput;
 };
 
 export type MutationScheduleUnpublishProfileArgs = {
@@ -1262,12 +1262,12 @@ export type MutationUnpublishManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-export type MutationUnpublishManyPackageArgs = {
+export type MutationUnpublishManyPackagesArgs = {
   from?: Array<Stage>;
-  where?: InputMaybe<PackagesManyWhereInput>;
+  where?: InputMaybe<PackageManyWhereInput>;
 };
 
-export type MutationUnpublishManyPackageConnectionArgs = {
+export type MutationUnpublishManyPackagesConnectionArgs = {
   after?: InputMaybe<Scalars["ID"]>;
   before?: InputMaybe<Scalars["ID"]>;
   first?: InputMaybe<Scalars["Int"]>;
@@ -1275,7 +1275,7 @@ export type MutationUnpublishManyPackageConnectionArgs = {
   last?: InputMaybe<Scalars["Int"]>;
   skip?: InputMaybe<Scalars["Int"]>;
   stage?: InputMaybe<Stage>;
-  where?: InputMaybe<PackagesManyWhereInput>;
+  where?: InputMaybe<PackageManyWhereInput>;
 };
 
 export type MutationUnpublishManyProfilesArgs = {
@@ -1294,9 +1294,9 @@ export type MutationUnpublishManyProfilesConnectionArgs = {
   where?: InputMaybe<ProfileManyWhereInput>;
 };
 
-export type MutationUnpublishPackagesArgs = {
+export type MutationUnpublishPackageArgs = {
   from?: Array<Stage>;
-  where: PackagesWhereUniqueInput;
+  where: PackageWhereUniqueInput;
 };
 
 export type MutationUnpublishProfileArgs = {
@@ -1324,19 +1324,19 @@ export type MutationUpdateManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-export type MutationUpdateManyPackageArgs = {
-  data: PackagesUpdateManyInput;
-  where?: InputMaybe<PackagesManyWhereInput>;
+export type MutationUpdateManyPackagesArgs = {
+  data: PackageUpdateManyInput;
+  where?: InputMaybe<PackageManyWhereInput>;
 };
 
-export type MutationUpdateManyPackageConnectionArgs = {
+export type MutationUpdateManyPackagesConnectionArgs = {
   after?: InputMaybe<Scalars["ID"]>;
   before?: InputMaybe<Scalars["ID"]>;
-  data: PackagesUpdateManyInput;
+  data: PackageUpdateManyInput;
   first?: InputMaybe<Scalars["Int"]>;
   last?: InputMaybe<Scalars["Int"]>;
   skip?: InputMaybe<Scalars["Int"]>;
-  where?: InputMaybe<PackagesManyWhereInput>;
+  where?: InputMaybe<PackageManyWhereInput>;
 };
 
 export type MutationUpdateManyProfilesArgs = {
@@ -1354,9 +1354,9 @@ export type MutationUpdateManyProfilesConnectionArgs = {
   where?: InputMaybe<ProfileManyWhereInput>;
 };
 
-export type MutationUpdatePackagesArgs = {
-  data: PackagesUpdateInput;
-  where: PackagesWhereUniqueInput;
+export type MutationUpdatePackageArgs = {
+  data: PackageUpdateInput;
+  where: PackageWhereUniqueInput;
 };
 
 export type MutationUpdateProfileArgs = {
@@ -1374,9 +1374,9 @@ export type MutationUpsertAssetArgs = {
   where: AssetWhereUniqueInput;
 };
 
-export type MutationUpsertPackagesArgs = {
-  upsert: PackagesUpsertInput;
-  where: PackagesWhereUniqueInput;
+export type MutationUpsertPackageArgs = {
+  upsert: PackageUpsertInput;
+  where: PackageWhereUniqueInput;
 };
 
 export type MutationUpsertProfileArgs = {
@@ -1392,22 +1392,21 @@ export type Node = {
   stage: Stage;
 };
 
-/** user packages */
-export type Packages = Node & {
-  __typename?: "Packages";
+export type Package = Node & {
+  __typename?: "Package";
   /** The time the document was created */
   createdAt: Scalars["DateTime"];
   /** User that created this document */
   createdBy?: Maybe<User>;
   /** Get the document in other stages */
-  documentInStages: Array<Packages>;
-  /** List of Packages versions */
+  documentInStages: Array<Package>;
+  /** List of Package versions */
   history: Array<Version>;
   /** The unique identifier */
   id: Scalars["ID"];
   /** kind of package */
   kind?: Maybe<Scalars["String"]>;
-  /** package name */
+  /** name of package */
   name?: Maybe<Scalars["String"]>;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars["DateTime"]>;
@@ -1420,36 +1419,33 @@ export type Packages = Node & {
   updatedAt: Scalars["DateTime"];
   /** User that last updated this document */
   updatedBy?: Maybe<User>;
+  /** url of package */
+  url?: Maybe<Scalars["String"]>;
 };
 
-/** user packages */
-export type PackagesCreatedByArgs = {
+export type PackageCreatedByArgs = {
   forceParentLocale?: InputMaybe<Scalars["Boolean"]>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
-/** user packages */
-export type PackagesDocumentInStagesArgs = {
+export type PackageDocumentInStagesArgs = {
   includeCurrent?: Scalars["Boolean"];
   inheritLocale?: Scalars["Boolean"];
   stages?: Array<Stage>;
 };
 
-/** user packages */
-export type PackagesHistoryArgs = {
+export type PackageHistoryArgs = {
   limit?: Scalars["Int"];
   skip?: Scalars["Int"];
   stageOverride?: InputMaybe<Stage>;
 };
 
-/** user packages */
-export type PackagesPublishedByArgs = {
+export type PackagePublishedByArgs = {
   forceParentLocale?: InputMaybe<Scalars["Boolean"]>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
-/** user packages */
-export type PackagesScheduledInArgs = {
+export type PackageScheduledInArgs = {
   after?: InputMaybe<Scalars["String"]>;
   before?: InputMaybe<Scalars["String"]>;
   first?: InputMaybe<Scalars["Int"]>;
@@ -1460,67 +1456,67 @@ export type PackagesScheduledInArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-/** user packages */
-export type PackagesUpdatedByArgs = {
+export type PackageUpdatedByArgs = {
   forceParentLocale?: InputMaybe<Scalars["Boolean"]>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
-export type PackagesConnectInput = {
+export type PackageConnectInput = {
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
   position?: InputMaybe<ConnectPositionInput>;
   /** Document to connect */
-  where: PackagesWhereUniqueInput;
+  where: PackageWhereUniqueInput;
 };
 
 /** A connection to a list of items. */
-export type PackagesConnection = {
-  __typename?: "PackagesConnection";
+export type PackageConnection = {
+  __typename?: "PackageConnection";
   aggregate: Aggregate;
   /** A list of edges. */
-  edges: Array<PackagesEdge>;
+  edges: Array<PackageEdge>;
   /** Information to aid in pagination. */
   pageInfo: PageInfo;
 };
 
-export type PackagesCreateInput = {
+export type PackageCreateInput = {
   createdAt?: InputMaybe<Scalars["DateTime"]>;
   kind?: InputMaybe<Scalars["String"]>;
   name?: InputMaybe<Scalars["String"]>;
   updatedAt?: InputMaybe<Scalars["DateTime"]>;
+  url?: InputMaybe<Scalars["String"]>;
 };
 
-export type PackagesCreateManyInlineInput = {
-  /** Connect multiple existing Packages documents */
-  connect?: InputMaybe<Array<PackagesWhereUniqueInput>>;
-  /** Create and connect multiple existing Packages documents */
-  create?: InputMaybe<Array<PackagesCreateInput>>;
+export type PackageCreateManyInlineInput = {
+  /** Connect multiple existing Package documents */
+  connect?: InputMaybe<Array<PackageWhereUniqueInput>>;
+  /** Create and connect multiple existing Package documents */
+  create?: InputMaybe<Array<PackageCreateInput>>;
 };
 
-export type PackagesCreateOneInlineInput = {
-  /** Connect one existing Packages document */
-  connect?: InputMaybe<PackagesWhereUniqueInput>;
-  /** Create and connect one Packages document */
-  create?: InputMaybe<PackagesCreateInput>;
+export type PackageCreateOneInlineInput = {
+  /** Connect one existing Package document */
+  connect?: InputMaybe<PackageWhereUniqueInput>;
+  /** Create and connect one Package document */
+  create?: InputMaybe<PackageCreateInput>;
 };
 
 /** An edge in a connection. */
-export type PackagesEdge = {
-  __typename?: "PackagesEdge";
+export type PackageEdge = {
+  __typename?: "PackageEdge";
   /** A cursor for use in pagination. */
   cursor: Scalars["String"];
   /** The item at the end of the edge. */
-  node: Packages;
+  node: Package;
 };
 
 /** Identifies documents */
-export type PackagesManyWhereInput = {
+export type PackageManyWhereInput = {
   /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<PackagesWhereInput>>;
+  AND?: InputMaybe<Array<PackageWhereInput>>;
   /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<PackagesWhereInput>>;
+  NOT?: InputMaybe<Array<PackageWhereInput>>;
   /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<PackagesWhereInput>>;
+  OR?: InputMaybe<Array<PackageWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars["String"]>;
   createdAt?: InputMaybe<Scalars["DateTime"]>;
@@ -1539,9 +1535,9 @@ export type PackagesManyWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars["DateTime"]>>>;
   createdBy?: InputMaybe<UserWhereInput>;
-  documentInStages_every?: InputMaybe<PackagesWhereStageInput>;
-  documentInStages_none?: InputMaybe<PackagesWhereStageInput>;
-  documentInStages_some?: InputMaybe<PackagesWhereStageInput>;
+  documentInStages_every?: InputMaybe<PackageWhereStageInput>;
+  documentInStages_none?: InputMaybe<PackageWhereStageInput>;
+  documentInStages_some?: InputMaybe<PackageWhereStageInput>;
   id?: InputMaybe<Scalars["ID"]>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars["ID"]>;
@@ -1634,9 +1630,28 @@ export type PackagesManyWhereInput = {
   /** All values that are not contained in given list. */
   updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars["DateTime"]>>>;
   updatedBy?: InputMaybe<UserWhereInput>;
+  url?: InputMaybe<Scalars["String"]>;
+  /** All values containing the given string. */
+  url_contains?: InputMaybe<Scalars["String"]>;
+  /** All values ending with the given string. */
+  url_ends_with?: InputMaybe<Scalars["String"]>;
+  /** All values that are contained in given list. */
+  url_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  url_not?: InputMaybe<Scalars["String"]>;
+  /** All values not containing the given string. */
+  url_not_contains?: InputMaybe<Scalars["String"]>;
+  /** All values not ending with the given string */
+  url_not_ends_with?: InputMaybe<Scalars["String"]>;
+  /** All values that are not contained in given list. */
+  url_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** All values not starting with the given string. */
+  url_not_starts_with?: InputMaybe<Scalars["String"]>;
+  /** All values starting with the given string. */
+  url_starts_with?: InputMaybe<Scalars["String"]>;
 };
 
-export enum PackagesOrderByInput {
+export enum PackageOrderByInput {
   CreatedAtAsc = "createdAt_ASC",
   CreatedAtDesc = "createdAt_DESC",
   IdAsc = "id_ASC",
@@ -1649,92 +1664,96 @@ export enum PackagesOrderByInput {
   PublishedAtDesc = "publishedAt_DESC",
   UpdatedAtAsc = "updatedAt_ASC",
   UpdatedAtDesc = "updatedAt_DESC",
+  UrlAsc = "url_ASC",
+  UrlDesc = "url_DESC",
 }
 
-export type PackagesUpdateInput = {
+export type PackageUpdateInput = {
   kind?: InputMaybe<Scalars["String"]>;
   name?: InputMaybe<Scalars["String"]>;
+  url?: InputMaybe<Scalars["String"]>;
 };
 
-export type PackagesUpdateManyInlineInput = {
-  /** Connect multiple existing Packages documents */
-  connect?: InputMaybe<Array<PackagesConnectInput>>;
-  /** Create and connect multiple Packages documents */
-  create?: InputMaybe<Array<PackagesCreateInput>>;
-  /** Delete multiple Packages documents */
-  delete?: InputMaybe<Array<PackagesWhereUniqueInput>>;
-  /** Disconnect multiple Packages documents */
-  disconnect?: InputMaybe<Array<PackagesWhereUniqueInput>>;
-  /** Override currently-connected documents with multiple existing Packages documents */
-  set?: InputMaybe<Array<PackagesWhereUniqueInput>>;
-  /** Update multiple Packages documents */
-  update?: InputMaybe<Array<PackagesUpdateWithNestedWhereUniqueInput>>;
-  /** Upsert multiple Packages documents */
-  upsert?: InputMaybe<Array<PackagesUpsertWithNestedWhereUniqueInput>>;
+export type PackageUpdateManyInlineInput = {
+  /** Connect multiple existing Package documents */
+  connect?: InputMaybe<Array<PackageConnectInput>>;
+  /** Create and connect multiple Package documents */
+  create?: InputMaybe<Array<PackageCreateInput>>;
+  /** Delete multiple Package documents */
+  delete?: InputMaybe<Array<PackageWhereUniqueInput>>;
+  /** Disconnect multiple Package documents */
+  disconnect?: InputMaybe<Array<PackageWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing Package documents */
+  set?: InputMaybe<Array<PackageWhereUniqueInput>>;
+  /** Update multiple Package documents */
+  update?: InputMaybe<Array<PackageUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple Package documents */
+  upsert?: InputMaybe<Array<PackageUpsertWithNestedWhereUniqueInput>>;
 };
 
-export type PackagesUpdateManyInput = {
+export type PackageUpdateManyInput = {
   kind?: InputMaybe<Scalars["String"]>;
   name?: InputMaybe<Scalars["String"]>;
+  url?: InputMaybe<Scalars["String"]>;
 };
 
-export type PackagesUpdateManyWithNestedWhereInput = {
+export type PackageUpdateManyWithNestedWhereInput = {
   /** Update many input */
-  data: PackagesUpdateManyInput;
+  data: PackageUpdateManyInput;
   /** Document search */
-  where: PackagesWhereInput;
+  where: PackageWhereInput;
 };
 
-export type PackagesUpdateOneInlineInput = {
-  /** Connect existing Packages document */
-  connect?: InputMaybe<PackagesWhereUniqueInput>;
-  /** Create and connect one Packages document */
-  create?: InputMaybe<PackagesCreateInput>;
-  /** Delete currently connected Packages document */
+export type PackageUpdateOneInlineInput = {
+  /** Connect existing Package document */
+  connect?: InputMaybe<PackageWhereUniqueInput>;
+  /** Create and connect one Package document */
+  create?: InputMaybe<PackageCreateInput>;
+  /** Delete currently connected Package document */
   delete?: InputMaybe<Scalars["Boolean"]>;
-  /** Disconnect currently connected Packages document */
+  /** Disconnect currently connected Package document */
   disconnect?: InputMaybe<Scalars["Boolean"]>;
-  /** Update single Packages document */
-  update?: InputMaybe<PackagesUpdateWithNestedWhereUniqueInput>;
-  /** Upsert single Packages document */
-  upsert?: InputMaybe<PackagesUpsertWithNestedWhereUniqueInput>;
+  /** Update single Package document */
+  update?: InputMaybe<PackageUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single Package document */
+  upsert?: InputMaybe<PackageUpsertWithNestedWhereUniqueInput>;
 };
 
-export type PackagesUpdateWithNestedWhereUniqueInput = {
+export type PackageUpdateWithNestedWhereUniqueInput = {
   /** Document to update */
-  data: PackagesUpdateInput;
+  data: PackageUpdateInput;
   /** Unique document search */
-  where: PackagesWhereUniqueInput;
+  where: PackageWhereUniqueInput;
 };
 
-export type PackagesUpsertInput = {
+export type PackageUpsertInput = {
   /** Create document if it didn't exist */
-  create: PackagesCreateInput;
+  create: PackageCreateInput;
   /** Update document if it exists */
-  update: PackagesUpdateInput;
+  update: PackageUpdateInput;
 };
 
-export type PackagesUpsertWithNestedWhereUniqueInput = {
+export type PackageUpsertWithNestedWhereUniqueInput = {
   /** Upsert data */
-  data: PackagesUpsertInput;
+  data: PackageUpsertInput;
   /** Unique document search */
-  where: PackagesWhereUniqueInput;
+  where: PackageWhereUniqueInput;
 };
 
 /** This contains a set of filters that can be used to compare values internally */
-export type PackagesWhereComparatorInput = {
+export type PackageWhereComparatorInput = {
   /** This field can be used to request to check if the entry is outdated by internal comparison */
   outdated_to?: InputMaybe<Scalars["Boolean"]>;
 };
 
 /** Identifies documents */
-export type PackagesWhereInput = {
+export type PackageWhereInput = {
   /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<PackagesWhereInput>>;
+  AND?: InputMaybe<Array<PackageWhereInput>>;
   /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<PackagesWhereInput>>;
+  NOT?: InputMaybe<Array<PackageWhereInput>>;
   /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<PackagesWhereInput>>;
+  OR?: InputMaybe<Array<PackageWhereInput>>;
   /** Contains search across all appropriate fields. */
   _search?: InputMaybe<Scalars["String"]>;
   createdAt?: InputMaybe<Scalars["DateTime"]>;
@@ -1753,9 +1772,9 @@ export type PackagesWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars["DateTime"]>>>;
   createdBy?: InputMaybe<UserWhereInput>;
-  documentInStages_every?: InputMaybe<PackagesWhereStageInput>;
-  documentInStages_none?: InputMaybe<PackagesWhereStageInput>;
-  documentInStages_some?: InputMaybe<PackagesWhereStageInput>;
+  documentInStages_every?: InputMaybe<PackageWhereStageInput>;
+  documentInStages_none?: InputMaybe<PackageWhereStageInput>;
+  documentInStages_some?: InputMaybe<PackageWhereStageInput>;
   id?: InputMaybe<Scalars["ID"]>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars["ID"]>;
@@ -1848,24 +1867,43 @@ export type PackagesWhereInput = {
   /** All values that are not contained in given list. */
   updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars["DateTime"]>>>;
   updatedBy?: InputMaybe<UserWhereInput>;
+  url?: InputMaybe<Scalars["String"]>;
+  /** All values containing the given string. */
+  url_contains?: InputMaybe<Scalars["String"]>;
+  /** All values ending with the given string. */
+  url_ends_with?: InputMaybe<Scalars["String"]>;
+  /** All values that are contained in given list. */
+  url_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** Any other value that exists and is not equal to the given value. */
+  url_not?: InputMaybe<Scalars["String"]>;
+  /** All values not containing the given string. */
+  url_not_contains?: InputMaybe<Scalars["String"]>;
+  /** All values not ending with the given string */
+  url_not_ends_with?: InputMaybe<Scalars["String"]>;
+  /** All values that are not contained in given list. */
+  url_not_in?: InputMaybe<Array<InputMaybe<Scalars["String"]>>>;
+  /** All values not starting with the given string. */
+  url_not_starts_with?: InputMaybe<Scalars["String"]>;
+  /** All values starting with the given string. */
+  url_starts_with?: InputMaybe<Scalars["String"]>;
 };
 
 /** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
-export type PackagesWhereStageInput = {
+export type PackageWhereStageInput = {
   /** Logical AND on all given filters. */
-  AND?: InputMaybe<Array<PackagesWhereStageInput>>;
+  AND?: InputMaybe<Array<PackageWhereStageInput>>;
   /** Logical NOT on all given filters combined by AND. */
-  NOT?: InputMaybe<Array<PackagesWhereStageInput>>;
+  NOT?: InputMaybe<Array<PackageWhereStageInput>>;
   /** Logical OR on all given filters. */
-  OR?: InputMaybe<Array<PackagesWhereStageInput>>;
+  OR?: InputMaybe<Array<PackageWhereStageInput>>;
   /** This field contains fields which can be set as true or false to specify an internal comparison */
-  compareWithParent?: InputMaybe<PackagesWhereComparatorInput>;
+  compareWithParent?: InputMaybe<PackageWhereComparatorInput>;
   /** Specify the stage to compare with */
   stage?: InputMaybe<Stage>;
 };
 
-/** References Packages record uniquely */
-export type PackagesWhereUniqueInput = {
+/** References Package record uniquely */
+export type PackageWhereUniqueInput = {
   id?: InputMaybe<Scalars["ID"]>;
 };
 
@@ -2506,14 +2544,14 @@ export type Query = {
   assetsConnection: AssetConnection;
   /** Fetches an object given its ID */
   node?: Maybe<Node>;
-  /** Retrieve multiple package */
-  package: Array<Packages>;
-  /** Retrieve multiple package using the Relay connection interface */
-  packageConnection: PackagesConnection;
-  /** Retrieve a single packages */
-  packages?: Maybe<Packages>;
+  /** Retrieve a single package */
+  package?: Maybe<Package>;
   /** Retrieve document version */
-  packagesVersion?: Maybe<DocumentVersion>;
+  packageVersion?: Maybe<DocumentVersion>;
+  /** Retrieve multiple packages */
+  packages: Array<Package>;
+  /** Retrieve multiple packages using the Relay connection interface */
+  packagesConnection: PackageConnection;
   /** Retrieve a single profile */
   profile?: Maybe<Profile>;
   /** Retrieve document version */
@@ -2585,37 +2623,37 @@ export type QueryNodeArgs = {
 };
 
 export type QueryPackageArgs = {
-  after?: InputMaybe<Scalars["String"]>;
-  before?: InputMaybe<Scalars["String"]>;
-  first?: InputMaybe<Scalars["Int"]>;
-  last?: InputMaybe<Scalars["Int"]>;
   locales?: Array<Locale>;
-  orderBy?: InputMaybe<PackagesOrderByInput>;
-  skip?: InputMaybe<Scalars["Int"]>;
   stage?: Stage;
-  where?: InputMaybe<PackagesWhereInput>;
+  where: PackageWhereUniqueInput;
 };
 
-export type QueryPackageConnectionArgs = {
-  after?: InputMaybe<Scalars["String"]>;
-  before?: InputMaybe<Scalars["String"]>;
-  first?: InputMaybe<Scalars["Int"]>;
-  last?: InputMaybe<Scalars["Int"]>;
-  locales?: Array<Locale>;
-  orderBy?: InputMaybe<PackagesOrderByInput>;
-  skip?: InputMaybe<Scalars["Int"]>;
-  stage?: Stage;
-  where?: InputMaybe<PackagesWhereInput>;
+export type QueryPackageVersionArgs = {
+  where: VersionWhereInput;
 };
 
 export type QueryPackagesArgs = {
+  after?: InputMaybe<Scalars["String"]>;
+  before?: InputMaybe<Scalars["String"]>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
   locales?: Array<Locale>;
+  orderBy?: InputMaybe<PackageOrderByInput>;
+  skip?: InputMaybe<Scalars["Int"]>;
   stage?: Stage;
-  where: PackagesWhereUniqueInput;
+  where?: InputMaybe<PackageWhereInput>;
 };
 
-export type QueryPackagesVersionArgs = {
-  where: VersionWhereInput;
+export type QueryPackagesConnectionArgs = {
+  after?: InputMaybe<Scalars["String"]>;
+  before?: InputMaybe<Scalars["String"]>;
+  first?: InputMaybe<Scalars["Int"]>;
+  last?: InputMaybe<Scalars["Int"]>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<PackageOrderByInput>;
+  skip?: InputMaybe<Scalars["Int"]>;
+  stage?: Stage;
+  where?: InputMaybe<PackageWhereInput>;
 };
 
 export type QueryProfileArgs = {
@@ -2856,7 +2894,7 @@ export type ScheduledOperationUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-export type ScheduledOperationAffectedDocument = Asset | Packages | Profile;
+export type ScheduledOperationAffectedDocument = Asset | Package | Profile;
 
 export type ScheduledOperationConnectInput = {
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
@@ -4529,6 +4567,26 @@ export type GetArticlesQuery = {
   }>;
 };
 
+export type GetPackagesQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetPackagesQuery = {
+  __typename?: "Query";
+  profiles: Array<{
+    __typename?: "Profile";
+    id: string;
+    firstName?: string | null;
+    lastName?: string | null;
+    image?: { __typename?: "Asset"; id: string; url: string } | null;
+  }>;
+  packages: Array<{
+    __typename?: "Package";
+    id: string;
+    name?: string | null;
+    kind?: string | null;
+    url?: string | null;
+  }>;
+};
+
 export type GetProfileQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetProfileQuery = {
@@ -4748,6 +4806,57 @@ export const GetArticlesDocument = {
     },
   ],
 } as unknown as DocumentNode<GetArticlesQuery, GetArticlesQueryVariables>;
+export const GetPackagesDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "GetPackages" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "profiles" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                { kind: "Field", name: { kind: "Name", value: "firstName" } },
+                { kind: "Field", name: { kind: "Name", value: "lastName" } },
+                {
+                  kind: "Field",
+                  name: { kind: "Name", value: "image" },
+                  selectionSet: {
+                    kind: "SelectionSet",
+                    selections: [
+                      { kind: "Field", name: { kind: "Name", value: "id" } },
+                      { kind: "Field", name: { kind: "Name", value: "url" } },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "packages" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                { kind: "Field", name: { kind: "Name", value: "id" } },
+                { kind: "Field", name: { kind: "Name", value: "name" } },
+                { kind: "Field", name: { kind: "Name", value: "kind" } },
+                { kind: "Field", name: { kind: "Name", value: "url" } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<GetPackagesQuery, GetPackagesQueryVariables>;
 export const GetProfileDocument = {
   kind: "Document",
   definitions: [

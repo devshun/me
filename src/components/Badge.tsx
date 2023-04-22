@@ -4,10 +4,10 @@ export type BadgeColorOptions = "red" | "blue" | "green" | "yellow" | "black";
 
 type Props = {
   label: string;
-  color: BadgeColorOptions;
+  color?: BadgeColorOptions;
 };
 
-export const Badge: React.FC<Props> = ({ label, color = "black"}) => {
+export const Badge: React.FC<Props> = ({ label, color = "black" }) => {
   return (
     <span className={["badge border-none", badgeColors[color]].join(" ")}>
       {label}

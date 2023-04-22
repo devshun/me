@@ -7,20 +7,20 @@ type Props = {
   title: string;
   badge: {
     label: string;
-    color: BadgeColorOptions;
+    color?: BadgeColorOptions;
   };
-  publishedAt: string;
+  publishedAt?: string;
 };
 
 export const Card: React.FC<Props> = memo((props) => {
   const { title, badge, publishedAt } = props;
   return (
-    <div className="card h-40 w-72 cursor-pointer bg-slate-200 shadow-xl">
+    <div className="card h-44 w-72 cursor-pointer bg-slate-200 shadow-xl">
       <Text
         color="black"
         size="large"
         tag="h2"
-        className="card-body p-6 line-clamp-3 max-h-36"
+        className="card-body line-clamp-4 max-h-36 p-6"
       >
         {title}
       </Text>

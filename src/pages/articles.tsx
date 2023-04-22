@@ -12,16 +12,14 @@ import {
 } from "@/lib/converters/formatArticles";
 import { sortArticlesByPublishedAt } from "@/lib/sortArticlesByPublishedAt";
 import { Article } from "@/types/article";
+import { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-const ArticlesPage = ({
-  profiles,
-  articles,
-}: {
+const ArticlesPage: NextPage<{
   profiles: GetArticlesQuery["profiles"];
   articles: Array<Article>;
-}) => {
+}> = ({ profiles, articles }) => {
   const [profile] = profiles;
 
   return (
@@ -44,7 +42,7 @@ const ArticlesPage = ({
         <Tab url="/">Profile</Tab>
         <Tab url="/articles">Articles</Tab>
         {/* <Tab url="/books">Books</Tab> */}
-        {/* <Tab url="/packages">Packages</Tab> */}
+        <Tab url="/packages">Packages</Tab>
       </Tabs>
       <div className="min-h-[25rem] animate-float-up">
         <div className="grid w-[60rem] grid-cols-3">
@@ -65,7 +63,7 @@ const ArticlesPage = ({
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const {
     data: { zennArticles, qiitaArticles, ...rest },
   } = await client.query({
