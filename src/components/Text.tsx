@@ -76,10 +76,10 @@ const TextComponent = forwardRef<TextElement, TextProps>(
 export const Text = memo(TextComponent);
 
 const sizeClasses: { [key in SizeOptions]: string } = {
-  small: "text-sm",
-  medium: "text-base",
-  large: "text-lg font-semibold",
-  xlarge: "text-2xl font-semibold",
+  small: "text-xs md:text-sm",
+  medium: "text-sm md:text-base",
+  large: "text-base md:text-lg font-semibold",
+  xlarge: "text-lg md:text-2xl font-semibold",
 };
 
 const colorClasses: { [key in ColorOptions]: string } = {

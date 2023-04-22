@@ -20,9 +20,9 @@ const PackagesPage: NextPage<GetPackagesQuery> = ({ profiles, packages }) => {
         <Image
           src={profile.image?.url as string}
           alt="profile image"
-          width={135}
-          height={135}
-          className="rounded-full"
+          width={100}
+          height={100}
+          className="rounded-full md:h-[8.5rem] md:w-[8.5rem]"
         />
         <div className="flex flex-col space-y-4">
           <Text color="white" size="xlarge" tag="h1">
@@ -36,8 +36,8 @@ const PackagesPage: NextPage<GetPackagesQuery> = ({ profiles, packages }) => {
         {/* <Tab url="/books">Books</Tab> */}
         <Tab url="/packages">Packages</Tab>
       </Tabs>
-      <div className="min-h-[25rem] animate-float-up">
-        <div className="grid w-[60rem] grid-cols-3">
+      <div className="animate-float-up md:min-h-[25rem]">
+        <div className="grid max-h-96 flex-col gap-8 px-10 sm:grid-cols-2 md:grid-cols-3 md:px-0">
           {packages.map(({ id, name, kind, url }) => (
             <Link key={id} href={url as string} passHref legacyBehavior>
               <a target="_blank" rel="noopener noreferrer">

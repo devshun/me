@@ -19,9 +19,9 @@ const ProfilePage: NextPage<GetProfileQuery> = ({ profiles }) => {
         <Image
           src={profile.image?.url as string}
           alt="profile image"
-          width={135}
-          height={135}
-          className="rounded-full"
+          width={100}
+          height={100}
+          className="rounded-full md:h-[8.5rem] md:w-[8.5rem]"
         />
         <div className="flex flex-col space-y-4">
           <Text color="white" size="xlarge" tag="h1">
@@ -35,8 +35,8 @@ const ProfilePage: NextPage<GetProfileQuery> = ({ profiles }) => {
         {/* <Tab url="/books">Books</Tab> */}
         <Tab url="/packages">Packages</Tab>
       </Tabs>
-      <div className="min-h-[25rem] animate-float-up">
-        <div className="flex w-2/3 flex-col justify-start space-y-10">
+      <div className="animate-float-up md:min-h-[25rem]">
+        <div className="flex w-2/3 flex-col justify-start space-y-10 px-10 md:px-0">
           <Text tag="h2">
             {profile.selfIntroduction?.split("\n").map((line, i) => (
               <Fragment key={`${line}_${i}`}>
