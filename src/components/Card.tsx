@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import { Text } from "@/components/Text";
 import dayjs from "dayjs";
+import { Badge } from "./Badge";
 
 type BadgeColorOptions = "red" | "blue" | "green" | "yellow";
 
@@ -26,11 +27,7 @@ export const Card: React.FC<Props> = memo((props) => {
         {title}
       </Text>
       <div className="flex h-10 items-center justify-between rounded-b-2xl bg-slate-400 px-8">
-        <span
-          className={["badge border-none", badgeColors[badge.color]].join(" ")}
-        >
-          {badge.label}
-        </span>
+        <Badge {...badge} />
         <Text color="black" size="small" className="opacity-90">
           {dayjs(publishedAt).format("YYYY/MM/DD")}
         </Text>
@@ -38,10 +35,3 @@ export const Card: React.FC<Props> = memo((props) => {
     </div>
   );
 });
-
-const badgeColors: { [key in BadgeColorOptions]: string } = {
-  red: "bg-red-500 text-white",
-  blue: "bg-blue-500 text-white",
-  green: "bg-green-500 text-white",
-  yellow: "bg-yellow-500 text-white",
-};

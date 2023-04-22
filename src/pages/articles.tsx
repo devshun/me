@@ -49,7 +49,11 @@ const ArticlesPage = ({
           {articles.map(({ id, title, badge, publishedAt, url }) => (
             <Link key={id} href={url} passHref legacyBehavior>
               <a target="_blank" rel="noopener noreferrer">
-                <Card title={title} badge={badge} publishedAt={publishedAt} />
+                <Card
+                  title={title}
+                  badge={badge as { label: string; color: "red" }}
+                  publishedAt={publishedAt}
+                />
               </a>
             </Link>
           ))}
