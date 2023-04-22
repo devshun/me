@@ -1,0 +1,4 @@
+type Query {
+  zennArticles(username: String!): ZennArticles!
+  qiitaArticles(username: String!): [QiitaArticle!]!
+}

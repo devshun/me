@@ -11,7 +11,7 @@ import React, {
 
 type SizeOptions = "small" | "medium" | "large" | "xlarge";
 
-type ColorOptions = "white" | "gray";
+type ColorOptions = "white" | "gray" | "black";
 
 type BaseProps = {
   size?: SizeOptions;
@@ -85,6 +85,7 @@ const sizeClasses: { [key in SizeOptions]: string } = {
 const colorClasses: { [key in ColorOptions]: string } = {
   white: "text-white",
   gray: "text-gray-400",
+  black: "text-black",
 };
 
 const linkClasses =

@@ -1,0 +1,45 @@
+type QiitaArticle {
+  id: ID!
+  title: String!
+  body: String!
+  rendered_body: String!
+  url: String!
+  tags: [Tag!]!
+  created_at: String!
+  updated_at: String!
+  user: User!
+  likes_count: Int!
+  stocks_count: Int!
+  comments_count: Int!
+  private: Boolean!
+  coediting: Boolean!
+  reactions_count: Int!
+  page_views_count: Int
+  group: String
+  team_membership: String
+  organization_url_name: String
+}
+
+type Tag {
+  name: String!
+  versions: [String!]!
+}
+
+type User {
+  id: ID!
+  permanent_id: Int!
+  name: String!
+  profile_image_url: String!
+  description: String!
+  location: String!
+  organization: String!
+  followees_count: Int!
+  followers_count: Int!
+  items_count: Int!
+  github_login_name: String
+  twitter_screen_name: String
+  facebook_id: String
+  linkedin_id: String
+  website_url: String
+  team_only: Boolean!
+}

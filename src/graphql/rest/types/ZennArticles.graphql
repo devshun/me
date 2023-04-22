@@ -1,0 +1,29 @@
+type ZennArticles {
+  articles: [Article!]!
+}
+
+type Article {
+  id: ID!
+  post_type: String!
+  title: String!
+  slug: String!
+  comments_count: Int!
+  liked_count: Int!
+  body_letters_count: Int!
+  article_type: String!
+  emoji: String!
+  is_suspending_private: Boolean!
+  published_at: String!
+  body_updated_at: String!
+  source_repo_updated_at: String
+  path: String!
+  user: User!
+  publication: String
+}
+
+type ZennUser {
+  id: Int!
+  username: String!
+  name: String!
+  avatar_small_url: String!
+}

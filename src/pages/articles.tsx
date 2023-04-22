@@ -1,16 +1,27 @@
+import { Card } from "@/components/Card";
 import { Tab, Tabs } from "@/components/Tabs";
 import { Text } from "@/components/Text";
 import { client } from "@/graphql/client";
 import {
-  GetProfileDocument,
-  GetProfileQuery,
+  GetArticlesDocument,
+  GetArticlesQuery,
 } from "@/graphql/generated/graphql";
+import { formatQiitaArticle } from "@/lib/converters/formatQiitaArticles";
+import { formatZennArticle } from "@/lib/converters/formatZennArticles";
+import { sortArticlesByPublishedAt } from "@/lib/sortArticlesByPublishedAt";
+import { Article } from "@/types/article";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment } from "react";
 
-const ArticlesPage = ({ profiles }: GetProfileQuery) => {
+const ArticlesPage = ({
+  profiles,
+  articles,
+}: {
+  profiles: GetArticlesQuery["profiles"];
+  articles: Array<Article>;
+}) => {
   const [profile] = profiles;
+
   return (
     <div className="flex flex-col space-y-12">
       <div className="mx-auto flex items-center space-x-10">
@@ -31,67 +42,17 @@ const ArticlesPage = ({ profiles }: GetProfileQuery) => {
         <Tab url="/">Profile</Tab>
         <Tab url="/articles">Articles</Tab>
         {/* <Tab url="/books">Books</Tab> */}
-        <Tab url="/packages">Packages</Tab>
+        {/* <Tab url="/packages">Packages</Tab> */}
       </Tabs>
       <div className="min-h-[25rem] animate-float-up">
-        <div className="flex w-2/3 flex-col justify-start space-y-10">
-          <Text tag="h2">
-            {profile.selfIntroduction?.split("\n").map((line, i) => (
-              <Fragment key={`${line}_${i}`}>
-                {line}
-                <br />
-              </Fragment>
-            ))}
-          </Text>
-          <div className="flex flex-col space-y-8">
-            <div className="flex flex-col space-y-2">
-              <Text size="large" tag="h2" color="white">
-                Interests
-              </Text>
-              <div className="flex space-x-2">
-                {profile.interests.map((interest) => (
-                  <Image
-                    key={interest.id}
-                    src={interest.url as string}
-                    alt="interest image"
-                    width={45}
-                    height={45}
-                  />
-                ))}
-              </div>
-            </div>
-            <nav className="flex flex-col space-y-2">
-              <Text size="large" tag="h2" color="white">
-                SNS
-              </Text>
-              <div className="flex space-x-2">
-                {(
-                  profile.sns as Array<{
-                    url: string;
-                    label: string;
-                    imageUrl: string;
-                  }>
-                ).map((sns) => (
-                  <Link
-                    key={sns.imageUrl}
-                    href={sns.url}
-                    passHref
-                    legacyBehavior
-                  >
-                    <a target="_blank" rel="noopener noreferrer">
-                      <Image
-                        src={sns.imageUrl}
-                        alt="sns image"
-                        width={45}
-                        height={45}
-                        className="rounded-md bg-white"
-                      />
-                    </a>
-                  </Link>
-                ))}
-              </div>
-            </nav>
-          </div>
+        <div className="grid w-[60rem] grid-cols-3">
+          {articles.map(({ id, title, badge, publishedAt, url }) => (
+            <Link key={id} href={url} passHref legacyBehavior>
+              <a target="_blank" rel="noopener noreferrer">
+                <Card title={title} badge={badge} publishedAt={publishedAt} />
+              </a>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
@@ -99,12 +60,24 @@ const ArticlesPage = ({ profiles }: GetProfileQuery) => {
 };
 
 export const getStaticProps = async () => {
-  const { data } = await client.query({
-    query: GetProfileDocument,
+  const {
+    data: { zennArticles, qiitaArticles, ...rest },
+  } = await client.query({
+    query: GetArticlesDocument,
+    variables: {
+      zennUsername: process.env.ZENN_USER_NAME as string,
+      qiitaUsername: process.env.QIITA_USER_NAME as string,
+    },
   });
 
   return {
-    props: data,
+    props: {
+      ...rest,
+      articles: sortArticlesByPublishedAt([
+        ...formatZennArticle(zennArticles.articles),
+        ...formatQiitaArticle(qiitaArticles),
+      ]),
+    },
   };
 };
 

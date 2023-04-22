@@ -1,0 +1,37 @@
+query GetArticles($zennUsername: String!, $qiitaUsername: String!) {
+  profiles {
+    id
+    firstName
+    lastName
+    image {
+      id
+      url
+    }
+  }
+  zennArticles(username: $zennUsername)
+    @rest(
+      type: "zennArticles"
+      method: "GET"
+      path: "articles?username={args.username}&order=latest"
+      endpoint: "zenn"
+    ) {
+    articles {
+      id
+      title
+      slug
+      published_at
+    }
+  }
+  qiitaArticles(username: $qiitaUsername)
+    @rest(
+      type: "qiitaArticles"
+      method: "GET"
+      path: "items?page=1&per_page=100&query=qiita+user%3A{args.username}"
+      endpoint: "qiita"
+    ) {
+    id
+    title
+    url
+    created_at
+  }
+}

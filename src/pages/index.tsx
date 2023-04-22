@@ -29,7 +29,7 @@ const ProfilePage = ({ profiles }: GetProfileQuery) => {
       </div>
       <Tabs className="mx-auto">
         <Tab url="/">Profile</Tab>
-        {/* <Tab url="/articles">Articles</Tab> */}
+        <Tab url="/articles">Articles</Tab>
         {/* <Tab url="/books">Books</Tab> */}
         {/* <Tab url="/packages">Packages</Tab> */}
       </Tabs>
