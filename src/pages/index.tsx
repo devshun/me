@@ -1,5 +1,6 @@
 import { Tab, Tabs } from "@/components/Tabs";
 import { Text } from "@/components/Text";
+import { REVALIDATE_INTERVAL } from "@/constants/revalidateInterval";
 import { client } from "@/graphql/client";
 import {
   GetProfileDocument,
@@ -106,6 +107,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: data,
+    revalidate: REVALIDATE_INTERVAL,
   };
 };
 

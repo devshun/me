@@ -1,13 +1,12 @@
 import { Card } from "@/components/Card";
 import { Tab, Tabs } from "@/components/Tabs";
 import { Text } from "@/components/Text";
+import { REVALIDATE_INTERVAL } from "@/constants/revalidateInterval";
 import { client } from "@/graphql/client";
 import {
-  GetArticlesQuery,
   GetPackagesDocument,
   GetPackagesQuery,
 } from "@/graphql/generated/graphql";
-import { Article } from "@/types/article";
 import { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -62,6 +61,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: data,
+    revalidate: REVALIDATE_INTERVAL,
   };
 };
 

@@ -1,6 +1,7 @@
 import { Card } from "@/components/Card";
 import { Tab, Tabs } from "@/components/Tabs";
 import { Text } from "@/components/Text";
+import { REVALIDATE_INTERVAL } from "@/constants/revalidateInterval";
 import { client } from "@/graphql/client";
 import {
   GetArticlesDocument,
@@ -82,6 +83,7 @@ export const getStaticProps: GetStaticProps = async () => {
         ...formatQiitaArticle(qiitaArticles),
       ]),
     },
+    revalidate: REVALIDATE_INTERVAL,
   };
 };
 
