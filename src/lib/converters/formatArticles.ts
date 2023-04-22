@@ -14,3 +14,16 @@ export const formatZennArticle = (
     publishedAt: published_at,
   }));
 };
+
+export const formatQiitaArticle = (
+  articles: GetArticlesQuery["qiitaArticles"]
+): Array<Article> => {
+  return articles.map(({ created_at, ...rest }) => ({
+    ...rest,
+    badge: {
+      label: "Qiita",
+      color: "green",
+    },
+    publishedAt: created_at,
+  }));
+};

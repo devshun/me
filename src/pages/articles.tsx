@@ -6,8 +6,10 @@ import {
   GetArticlesDocument,
   GetArticlesQuery,
 } from "@/graphql/generated/graphql";
-import { formatQiitaArticle } from "@/lib/converters/formatQiitaArticles";
-import { formatZennArticle } from "@/lib/converters/formatZennArticles";
+import {
+  formatZennArticle,
+  formatQiitaArticle,
+} from "@/lib/converters/formatArticles";
 import { sortArticlesByPublishedAt } from "@/lib/sortArticlesByPublishedAt";
 import { Article } from "@/types/article";
 import Image from "next/image";
