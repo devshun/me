@@ -4604,6 +4604,7 @@ export type GetArticlesQuery = {
       title: string;
       slug: string;
       published_at: string;
+      user: { __typename?: "User"; name: string };
     }>;
   };
   qiitaArticles: Array<{
@@ -4779,6 +4780,19 @@ export const GetArticlesDocument = {
                       {
                         kind: "Field",
                         name: { kind: "Name", value: "published_at" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "user" },
+                        selectionSet: {
+                          kind: "SelectionSet",
+                          selections: [
+                            {
+                              kind: "Field",
+                              name: { kind: "Name", value: "name" },
+                            },
+                          ],
+                        },
                       },
                     ],
                   },

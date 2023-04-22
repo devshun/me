@@ -22,7 +22,6 @@ const ArticlesPage: NextPage<{
   articles: Array<Article>;
 }> = ({ profiles, articles }) => {
   const [profile] = profiles;
-
   return (
     <div className="flex flex-col space-y-12">
       <div className="mx-auto flex items-center space-x-10">

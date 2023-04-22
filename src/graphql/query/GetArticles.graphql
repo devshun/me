@@ -20,6 +20,9 @@ query GetArticles($zennUsername: String!, $qiitaUsername: String!) {
       title
       slug
       published_at
+      user {
+        name
+      }
     }
   }
   qiitaArticles(username: $qiitaUsername)

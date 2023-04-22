@@ -1,3 +1,4 @@
+import { QIITA_API_URL, ZENN_API_URL } from "@/constants/urls";
 import { ApolloClient, InMemoryCache, HttpLink, from } from "@apollo/client";
 import { RestLink } from "apollo-link-rest";
 
@@ -14,8 +15,8 @@ const httpLink = new HttpLink({
 // rest link
 const restLink = new RestLink({
   endpoints: {
-    zenn: "https://zenn.dev/api/",
-    qiita: "https://qiita.com/api/v2/",
+    zenn: ZENN_API_URL,
+    qiita: QIITA_API_URL,
   },
 });
 
