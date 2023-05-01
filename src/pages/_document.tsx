@@ -4,7 +4,7 @@ const Document = () => {
   return (
     <Html>
       <Head>
-      <title>dev-shun.me</title>
+        <title>dev-shun.me</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"

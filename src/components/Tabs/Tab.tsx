@@ -11,10 +11,7 @@ export const Tab: React.FC<Props> = memo((props) => {
 
   const router = useRouter();
 
-  const isActive = useMemo(
-    () => url === router.pathname,
-    [url, router.pathname]
-  );
+  const isActive = url === router.pathname;
 
   return (
     <Text
