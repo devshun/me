@@ -16,8 +16,8 @@ type Props = {
 export const Card: React.FC<Props> = memo((props) => {
   const { title, subtitle, badge, publishedAt } = props;
   return (
-    <div className="card h-44 w-72 cursor-pointer bg-slate-200 shadow-xl">
-      <div className="card-body max-h-36 p-6">
+    <div className="card h-48 w-72 cursor-pointer bg-slate-200 shadow-xl">
+      <div className="card-body max-h-40 px-6 pt-6 pb-3">
         <Text color="black" size="large" tag="h2" className="line-clamp-4">
           {title}
         </Text>
